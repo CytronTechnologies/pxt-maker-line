@@ -57,19 +57,21 @@ export enum LinePosition {
     export function initializeAnalog(pin:AnalogReadWritePin){
         analogSensorPin = pin;
         isAnalogInitialized = true;
+        isDigitalInitialized = false;
 }
 
     /**
       * Initialize Maker Line at selected pin (Digital Mode).
       */
     //% weight=48
-    //% blockGap=8
+    //% blockGap=14
     //% blockId=makerline_initialized_digital
     //% block="initialize maker line in digital mode: | D1 = %d1 D2 = %d2 D3 = %d3 D4 = %d4 D5 = %d5"
     //% d1.defl=DigitalPin.P12 d2.defl=DigitalPin.P13 d3.defl=DigitalPin.P14 d4.defl=DigitalPin.P15 d5.defl=DigitalPin.P16
     export function initializeDigital(d1: DigitalPin, d2: DigitalPin, d3: DigitalPin, d4: DigitalPin, d5: DigitalPin) {
         digitalSensorPins = [d1, d2, d3, d4, d5];
         isDigitalInitialized = true;
+        isAnalogInitialized = false;
 }
 
 
