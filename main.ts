@@ -19,6 +19,8 @@ let isAnalogInitialized = false;
 let analogSensorPin: AnalogReadWritePin;
 let isDigitalInitialized = false;
 let digitalSensorPins: DigitalPin[] = [];
+let calibrationPin : DigitalPin;
+let calibrationActive = false;
     
 // Maker Line position.
 //% blockId=makerline_lineposition_enum
@@ -74,12 +76,61 @@ export enum LinePosition {
         isAnalogInitialized = false;
 }
 
+    /**
+      * Set the calibration pin for the Maker Line sensor.
+      */
+    //% weight=46
+    //% blockGap=14
+    //% blockId=makerline_calibration_pin
+    //% block="set maker line calibration pin to %pin"
+    //% pin.defl=DigitalPin.P12
+    export function initializeCalibration(pin: DigitalPin) {
+        calibrationPin = pin;
+    }
+
+    /**
+      * Enter calibration mode.
+      */
+    //% weight=44
+    //% blockGap=8
+    //% blockId=makerline_enter_calibration
+    //% block="start maker line calibration"
+    export function enterCalibration() {
+        if (!calibrationPin){
+        console.log("Error: No calibration pin initialized!");
+        return;
+        }
+        pins.digitalWritePin(calibrationPin, 0);
+        basic.pause(2100);
+        pins.digitalWritePin(calibrationPin, 1);
+        calibrationActive = true;
+    }
+
+    /**
+      * Exit calibration mode.
+      */
+    //% weight=42
+    //% blockGap=8
+    //% blockId=makerline_exit_calibration
+    //% block="exit maker line calibration"
+    export function exitCalibration() {
+        if (!calibrationActive){ 
+        console.log("Warning: Calibration already in progress!");
+        return;
+        }    
+
+        pins.digitalWritePin(calibrationPin, 0);
+        basic.pause(100);
+        pins.digitalWritePin(calibrationPin, 1);
+        calibrationActive = false;
+    }
+
 
     /**
       * Return true if Maker Line is on the selected position. 
       * @param position Check if Maker Line is on this position.
       */
-    //% weight=46
+    //% weight=40
     //% blockGap=8
     //% blockId=makerline_is_line_detected_on
     //% block="line detected on %position"
@@ -122,11 +173,11 @@ export enum LinePosition {
         }
 
         if (isDigitalInitialized) {
-            let R = pins.digitalReadPin(digitalSensorPins[4]);  // d1
-            let CR = pins.digitalReadPin(digitalSensorPins[3]); // d2
+            let R = pins.digitalReadPin(digitalSensorPins[4]);  // d5
+            let CR = pins.digitalReadPin(digitalSensorPins[3]); // d4
             let C = pins.digitalReadPin(digitalSensorPins[2]);  // d3
-            let CL = pins.digitalReadPin(digitalSensorPins[1]); // d4
-            let L = pins.digitalReadPin(digitalSensorPins[0]);  // d5
+            let CL = pins.digitalReadPin(digitalSensorPins[1]); // d2
+            let L = pins.digitalReadPin(digitalSensorPins[0]);  // d1
 
             switch (position) {
                 case LinePosition.None:
