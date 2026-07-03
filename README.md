@@ -14,7 +14,6 @@ This repository can be added as an **extension** in MakeCode.
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
 * search for **https://github.com/cytrontechnologies/pxt-maker-line** and import
-*
 
 # Examples
 
