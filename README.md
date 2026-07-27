@@ -1,6 +1,6 @@
 # MAKER LINE Extension for Microsoft MakeCode
 
-This code provides the driver for [**MAKER LINE**]([https://www.cytron.io/p-sumo-bit](https://my.cytron.io/p-maker-line-simplifying-line-sensor-for-beginner?r=1)).
+This code provides the driver for [**MAKER LINE**](https://my.cytron.io/p-maker-line-simplifying-line-sensor-for-beginner).
 
 Maker Line is a beginner-friendly 5-channel infrared (IR) line sensor designed for line following robots. It features automatic sensor calibration, selectable black/white line detection, and both digital and analog outputs, making it suitable for simple line followers as well as advanced PID-based robots.
 
@@ -93,4 +93,10 @@ basic.forever(function () {
 })
 
 ```
+
+## Learn More
+
+* [Maker Line product page](https://my.cytron.io/p-maker-line-simplifying-line-sensor-for-beginner)
+* [Line Following with MOTION:BIT and Maker Line](https://my.cytron.io/tutorial/line_following_robot_car_using_motionbit) - a step-by-step micro:bit MakeCode tutorial building a line-following robot with the Maker Line sensor
+* [Getting Started with Maker Line](https://my.cytron.io/tutorial/getting-started-with-rbm-maker-line) - mounting and wiring the Maker Line sensor
 

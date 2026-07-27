@@ -50,11 +50,12 @@ export enum LinePosition {
 
     /**
       * Initialize Maker Line at selected pin (Analog Mode).
+      * @param pin the analog pin connected to the Maker Line output
       */
     //% weight=50
     //% blockGap=8
     //% blockId=makerline_initialized_analog
-    //% block="initialize maker line in Analog mode at %pin"
+    //% block="initialize maker line in analog mode at %pin"
     //% pin.defl=AnalogReadWritePin.P1
     export function initializeAnalog(pin:AnalogReadWritePin){
         analogSensorPin = pin;
@@ -64,6 +65,11 @@ export enum LinePosition {
 
     /**
       * Initialize Maker Line at selected pin (Digital Mode).
+      * @param d1 the digital pin connected to the far left sensor output
+      * @param d2 the digital pin connected to the left sensor output
+      * @param d3 the digital pin connected to the center sensor output
+      * @param d4 the digital pin connected to the right sensor output
+      * @param d5 the digital pin connected to the far right sensor output
       */
     //% weight=48
     //% blockGap=14
