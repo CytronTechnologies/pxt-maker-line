@@ -1,6 +1,6 @@
 {
     "name": "pxt-maker-line",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Driver for the Cytron Maker Line, a beginner-friendly 5-channel IR line sensor for line following robots.",
     "license": "MIT",
     "dependencies": {
