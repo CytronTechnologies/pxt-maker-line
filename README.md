@@ -4,7 +4,7 @@ This code provides the driver for [**MAKER LINE**](https://my.cytron.io/p-maker-
 
 Maker Line is a beginner-friendly 5-channel infrared (IR) line sensor designed for line following robots. It features automatic sensor calibration, selectable black/white line detection, and both digital and analog outputs, making it suitable for simple line followers as well as advanced PID-based robots.
 
-![MAKERLINE](https://raw.githubusercontent.com/CytronTechnologies/pxt-sumobit/master/makerline.png)
+![MAKERLINE](https://raw.githubusercontent.com/CytronTechnologies/pxt-maker-line/master/makerline.png)
 
 ## Use as Extension
 
